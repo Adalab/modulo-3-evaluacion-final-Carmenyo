@@ -7,21 +7,25 @@ import MoviesSceneList from './MoviesSceneList';
 
 function App() {
   const [dataFilms, setDataFilms] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getApiData().then((dataFromApi) => {
+      setLoading(false);
       console.log(dataFromApi)
       const orderedFilms = dataFromApi.sort((a,b)=>
       a.movie > b.movie ? 1: a.movie < b.movie ? -1 :0);
        return setDataFilms(orderedFilms)
     });
+    
   }, []);
 
   return (
-    <>
-    <h1 className='list__title'>Listado</h1>
-    <MoviesSceneList films = {dataFilms}/>
-    </>
+    <div className="app">
+    <section>
+    {loading ? <div className='app__loading'>Cargando...</div> : < MoviesSceneList films = {dataFilms} />}
+    </section> 
+    </div>
   );
 }
 
