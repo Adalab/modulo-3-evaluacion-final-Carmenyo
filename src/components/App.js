@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import MoviesSceneList from './MoviesSceneList';
 import FilterByName from './FilterByName';
 import FilterByYear from './FilterByYear';
+import Header from './Header';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
 
   return (
     <div className="app">
+    <Header/>
     <FilterByName search={search} setSearch={setSearch}/>
     <FilterByYear/>
     <section>

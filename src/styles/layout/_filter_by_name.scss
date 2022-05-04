@@ -1,16 +1,15 @@
 .form {
-    text-align: center;
-    align-items: center;
 
  &__input{
-  width: 300px;
+  width: 400px;
   height: 40px;
   background-color: black;
   color: rgb(22, 79, 4);
   border: none;
   border-radius: 15px;
   text-align: center;
-  margin-bottom: 50px;
+  margin-top: 20px;
+  margin-bottom: 40px;
   font-size: 20px;
  }
 

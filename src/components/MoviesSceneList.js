@@ -1,5 +1,6 @@
 import React from "react";
 import MoviesSceneItems from "./MovieSceneItem"
+import "../styles/layout/_movie_Scene_List.scss"
 
 function MoviesSceneList(props) {
   const filmElements = props.films.map((film) => {

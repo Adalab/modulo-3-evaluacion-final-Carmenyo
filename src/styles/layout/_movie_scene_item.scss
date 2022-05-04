@@ -1,0 +1,28 @@
+.card {
+    text-align: center;
+    border: solid 5px black;
+    margin: 20px;
+    
+
+    &__image{
+        width: 200px;
+        margin-top: 40px;
+    }
+
+    &__title{
+        font-family:fantasy;
+        font-size: 20px;
+    }
+    &__description{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-style: oblique;
+    }
+    &__year{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+}
+
+.card:hover{
+    background-color: black;
+    color: aliceblue;
+}
