@@ -3,7 +3,8 @@ import '../styles/App.scss';
 import getApiData from '../services/api';
 import { useEffect, useState } from 'react';
 import MoviesSceneList from './MoviesSceneList';
-import FilterByName from './Filters';
+import FilterByName from './FilterByName';
+import FilterByYear from './FilterByYear';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
   return (
     <div className="app">
     <FilterByName search={search} setSearch={setSearch}/>
+    <FilterByYear/>
     <section>
     {loading ? <div className='app__loading'>Cargando...</div> : < MoviesSceneList films = {filteredData} />}
     </section> 

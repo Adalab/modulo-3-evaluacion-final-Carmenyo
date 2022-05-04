@@ -1,0 +1,17 @@
+.form_year {
+    text-align: center;
+    align-items: center;
+
+ &__select{
+  width: 300px;
+  height: 40px;
+  background-color: black;
+  color: rgb(242, 247, 240);
+  border: none;
+  border-radius: 15px;
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 20px;
+ }
+
+ }
