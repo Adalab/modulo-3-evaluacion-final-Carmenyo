@@ -1,25 +1,23 @@
 import '../styles/App.scss';
-import getDataApi from '../services/api';
+import getApiData from '../services/api';
 import { useEffect, useState } from 'react';
 
 
-
 function App() {
-  const [data, setData] = useState([]);
-
+  const [dataFilms, setDataFilms] = useState([]);
 
   useEffect(() => {
-    getDataApi().then((apiData) => {
-      setData(apiData);
-      console.log(apiData)
-    
+    getApiData().then((dataFromApi) => {
+      console.log(dataFromApi)
+      const orderedFilms = dataFromApi.sort((a,b)=>
+      a.movie > b.movie ? 1: a.movie < b.movie ? -1 :0);
+       return setDataFilms(orderedFilms)
     });
   }, []);
 
   return (
-
     <>
-   
+    <h1 className='list__title'>Listado</h1>
     </>
   );
 }

@@ -1,18 +1,18 @@
-function getDataApi() {
+const getApiData= () => {
     return fetch('https://owen-wilson-wow-api.herokuapp.com/wows/random?results=50')
       .then((response) => response.json())
-      .then((json) => {
-        const data = json.map((wow) => {
+      .then((data) => {
+        const dataClean = data.map((film) => {
           return {
-            movie: wow.movie,
-            year: wow.year,
-            director: wow.director,
-            fullline: wow.full_line,
-            poster: wow.poster,
-            audio: wow.audio,
+            movie: film.movie,
+            year: film.year,
+            director: film.director,
+            fullline: film.full_line,
+            poster: film.poster,
+            audio: film.audio,
           };
         });
-        return data;
+        return dataClean;
       });
-  }
-  export default getDataApi;
+  };
+  export default getApiData;
