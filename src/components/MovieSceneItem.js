@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/layout/movie_scene_item.scss"
+import "../styles/layout/_movie___scene_item.scss"
 
 function MoviesSceneItems (props) {
     return (

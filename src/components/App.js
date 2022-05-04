@@ -3,11 +3,13 @@ import '../styles/App.scss';
 import getApiData from '../services/api';
 import { useEffect, useState } from 'react';
 import MoviesSceneList from './MoviesSceneList';
+import FilterByName from './Filters';
 
 
 function App() {
   const [dataFilms, setDataFilms] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState ("");
 
   useEffect(() => {
     getApiData().then((dataFromApi) => {
@@ -20,10 +22,16 @@ function App() {
     
   }, []);
 
+  const filteredData = dataFilms.filter
+  (film => film.movie.toLowerCase().includes(search.toLowerCase())
+  );
+
+
   return (
     <div className="app">
+    <FilterByName search={search} setSearch={setSearch}/>
     <section>
-    {loading ? <div className='app__loading'>Cargando...</div> : < MoviesSceneList films = {dataFilms} />}
+    {loading ? <div className='app__loading'>Cargando...</div> : < MoviesSceneList films = {filteredData} />}
     </section> 
     </div>
   );
