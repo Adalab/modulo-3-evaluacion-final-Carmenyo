@@ -1,6 +1,8 @@
+import React from 'react';
 import '../styles/App.scss';
 import getApiData from '../services/api';
 import { useEffect, useState } from 'react';
+import MoviesSceneList from './MoviesSceneList';
 
 
 function App() {
@@ -18,6 +20,7 @@ function App() {
   return (
     <>
     <h1 className='list__title'>Listado</h1>
+    <MoviesSceneList films = {dataFilms}/>
     </>
   );
 }
