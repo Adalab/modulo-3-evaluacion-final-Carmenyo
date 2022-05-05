@@ -11,7 +11,7 @@ function App() {
   const [dataFilms, setDataFilms] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
-  const [year, setYear] = useState ("")
+ 
 
   useEffect(() => {
     getApiData().then((dataFromApi) => {
@@ -29,13 +29,21 @@ function App() {
     return(
     film.movie.toLowerCase().includes(search.toLowerCase()))
   });
+  //  console.log(filteredData)
 
-  
- console.log(filteredData)
+   const getYears = () => { 
+     const filmsYears = dataFilms.map((film) => film.year);
+
+     const uniqueYears = filmsYears.filter((year, index)=> {
+     return filmsYears.indexOf(year) === index;
+     });
+     return uniqueYears;
+    };
+
   return (
     <div className='app'>
       <Header />
-      <Filters search={search} setSearch={setSearch} year = {year} setYear = {setYear}  />
+      <Filters search={search} setSearch={setSearch}  years={getYears()} />
       <section>
         {loading ? (
           <div className='app__loading'>Cargando...</div>

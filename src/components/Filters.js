@@ -7,7 +7,7 @@ return (
     <>
     <form className="form">
     <FilterByName search={props.search} setSearch={props.setSearch}/>
-    <FilterByYear year={props.year} setYear={props.setYear}/>
+    <FilterByYear years={props.years}/>
     </form>
     </>
 );
