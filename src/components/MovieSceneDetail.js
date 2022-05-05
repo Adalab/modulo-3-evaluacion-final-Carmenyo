@@ -1,6 +1,7 @@
 import React from "react";
+// import {AiTwotoneSound} from "react-icons/ai"
 
-function MovieSceneDetail =() => {
+function MovieSceneDetail(props) {
     
     return (
             <>
@@ -17,3 +18,5 @@ function MovieSceneDetail =() => {
           );
     
 }
+
+export default MovieSceneDetail;

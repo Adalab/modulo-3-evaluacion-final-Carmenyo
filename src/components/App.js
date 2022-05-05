@@ -3,8 +3,7 @@ import "../styles/App.scss";
 import getApiData from "../services/api";
 import { useEffect, useState } from "react";
 import MoviesSceneList from "./MoviesSceneList";
-import FilterByName from "./FilterByName";
-import FilterByYear from "./FilterByYear";
+import Filters from "./Filters";
 import Header from "./Header";
 
 function App() {
@@ -27,16 +26,18 @@ function App() {
     film.movie.toLowerCase().includes(search.toLowerCase())
   );
 
+  
+
   return (
     <div className='app'>
       <Header />
-      <FilterByName search={search} setSearch={setSearch} />
-      <FilterByYear />
+      <Filters search={search} setSearch={setSearch}/>
       <section>
         {loading ? (
           <div className='app__loading'>Cargando...</div>
         ) : (
           <MoviesSceneList films={filteredData} />
+          // <AiTwotoneSound/>
         )}
       </section>
     </div>
