@@ -1,4 +1,5 @@
 import React from "react";
+import { Routes, Route, useLocation, matchPath } from "react-router-dom";
 import "../styles/App.scss";
 import getApiData from "../services/api";
 import { useEffect, useState } from "react";
@@ -6,12 +7,19 @@ import MoviesSceneList from "./MoviesSceneList";
 import Filters from "./Filters";
 import Header from "./Header";
 import "../styles/core/_reset.scss";
+import MovieSceneDetail from "./MovieSceneDetail";
 
 function App() {
   const [dataFilms, setDataFilms] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [select, setSelect] = useState("All");
+
+  const { pathname } = useLocation();
+  const dataPath = matchPath("/:id", pathname);
+
+  const filmId = dataPath !== null ? dataPath.params.id : null;
+  const filmFound = dataFilms.find((item) => item.id === filmId);
 
   useEffect(() => {
     getApiData().then((dataFromApi) => {
@@ -42,39 +50,42 @@ function App() {
         return true;
       }
 
-      return parseInt(film.year) === parseInt(select);
     });
-
-  // .filter((film) => {
-  //   if (select === "All") {
-  //     return true;
-  //   } else if (select === film.year) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // });
 
   return (
     <div className='app'>
       <Header />
-      <Filters
-        search={search}
-        setSearch={setSearch}
-        setSelect={setSelect}
-        years={getYears()}
-      />
-      <section>
-        {loading ? (
-          <div className='app__loading'>Cargando...</div>
-        ) : filteredData.length === 0 ? (
-          <h2 className='app__noresults'>
-            No se han encontrado resultados para tu consulta
-          </h2>
-        ) : (
-          <MoviesSceneList films={filteredData} />
-        )}
-      </section>
+
+      <Routes>
+        <Route
+          path='/'
+          element={
+            <>
+              <Filters
+                search={search}
+                setSearch={setSearch}
+                setSelect={setSelect}
+                years={getYears()}
+              />
+              <section>
+                {loading ? (
+                  <div className='app__loading'>Cargando...</div>
+                ) : filteredData.length === 0 ? (
+                  <h2 className='app__noresults'>
+                    No se han encontrado resultados para tu consulta
+                  </h2>
+                ) : (
+                  <MoviesSceneList films={filteredData} />
+                )}
+              </section>
+            </>
+          }
+        />
+        <Route
+          path='/:id'
+          element={<MovieSceneDetail film={filmFound} id={filmId} />}
+        />
+      </Routes>
     </div>
   );
 }
