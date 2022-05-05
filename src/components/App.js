@@ -49,7 +49,6 @@ function App() {
       if (select === "All") {
         return true;
       }
-
     });
 
   return (
