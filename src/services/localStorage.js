@@ -20,11 +20,11 @@ const clear = () => {
   localStorage.clear();
 };
 
-const objectToExport = {
+const object = {
   get: get,
   set: set,
   remove: remove,
   clear: clear,
 };
 
-export default objectToExport;
+export default object;
