@@ -7,11 +7,10 @@ return (
     <>
     <form className="form">
     <FilterByName search={props.search} setSearch={props.setSearch}/>
-    <FilterByYear />
+    <FilterByYear year={props.year} setYear={props.setYear}/>
     </form>
     </>
 );
-
 };
 
 export default Filters;

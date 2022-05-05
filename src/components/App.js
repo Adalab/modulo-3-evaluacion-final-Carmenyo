@@ -10,6 +10,7 @@ function App() {
   const [dataFilms, setDataFilms] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
+  const [year, setYear] = useState ("")
 
   useEffect(() => {
     getApiData().then((dataFromApi) => {
@@ -22,20 +23,27 @@ function App() {
     });
   }, []);
 
-  const filteredData = dataFilms.filter((film) =>
-    film.movie.toLowerCase().includes(search.toLowerCase())
-  );
+
+
+
+  const filteredData = dataFilms
+  .filter((film) => {
+    return(
+    film.movie.toLowerCase().includes(search.toLowerCase()))
+  });
 
   
-
+ console.log(filteredData)
   return (
     <div className='app'>
       <Header />
-      <Filters search={search} setSearch={setSearch}/>
+      <Filters search={search} setSearch={setSearch} year = {year} setYear = {setYear}  />
       <section>
         {loading ? (
           <div className='app__loading'>Cargando...</div>
-        ) : (
+        ) : 
+        
+        ( filteredData.length === 0 ? <h2 className="app__noresults"> No se han encontrado resultados para tu consulta</h2> :
           <MoviesSceneList films={filteredData} />
           // <AiTwotoneSound/>
         )}

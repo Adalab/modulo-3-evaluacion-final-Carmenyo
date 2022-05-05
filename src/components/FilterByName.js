@@ -10,6 +10,7 @@ const FilterByName = (props) => {
           <input
             key="id"
             className="form__input"
+            autoComplete="off"
             id="film"
             type="search"
             onChange={handleSearch}

@@ -4,7 +4,7 @@ import "../styles/layout/_movie_scene_item.scss"
 function MoviesSceneItems (props) {
     return (
       <>
-      <a href = "#">
+      <a href = "https://google.es">
         <img className="card__image" alt={props.film.movie} src={props.film.poster} />
         </a>
         <h4 className="card__title">{props.film.movie}</h4>
