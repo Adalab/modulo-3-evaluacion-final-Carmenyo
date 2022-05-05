@@ -5,13 +5,13 @@ import { useEffect, useState } from "react";
 import MoviesSceneList from "./MoviesSceneList";
 import Filters from "./Filters";
 import Header from "./Header";
-import "../styles/core/_reset.scss"
+import "../styles/core/_reset.scss";
 
 function App() {
   const [dataFilms, setDataFilms] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
- 
+  const [select, setSelect] = useState("All");
 
   useEffect(() => {
     getApiData().then((dataFromApi) => {
@@ -24,38 +24,58 @@ function App() {
     });
   }, []);
 
+  const getYears = () => {
+    const filmsYears = dataFilms.map((film) => film.year);
+
+    const uniqueYears = filmsYears
+      .filter((year, index) => {
+        return filmsYears.indexOf(year) === index;
+      })
+      .sort((a, b) => a - b);
+    return uniqueYears;
+  };
+
   const filteredData = dataFilms
-   .filter((film) => {
-    return(
-    film.movie.toLowerCase().includes(search.toLowerCase()))
-  });
-  //  console.log(filteredData)
+    .filter((film) => film.movie.toLowerCase().includes(search.toLowerCase()))
+    .filter((film) => {
+      if (select === "All") {
+        return true;
+      }
 
-   const getYears = () => { 
-     const filmsYears = dataFilms.map((film) => film.year);
+      return parseInt(film.year) === parseInt(select);
+    });
 
-     const uniqueYears = filmsYears.filter((year, index)=> {
-     return filmsYears.indexOf(year) === index;
-     });
-     return uniqueYears;
-    };
+  // .filter((film) => {
+  //   if (select === "All") {
+  //     return true;
+  //   } else if (select === film.year) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // });
 
   return (
     <div className='app'>
       <Header />
-      <Filters search={search} setSearch={setSearch}  years={getYears()} />
+      <Filters
+        search={search}
+        setSearch={setSearch}
+        setSelect={setSelect}
+        years={getYears()}
+      />
       <section>
         {loading ? (
           <div className='app__loading'>Cargando...</div>
-        ) : 
-        
-        ( filteredData.length === 0 ? <h2 className="app__noresults"> No se han encontrado resultados para tu consulta</h2> :
+        ) : filteredData.length === 0 ? (
+          <h2 className='app__noresults'>
+            No se han encontrado resultados para tu consulta
+          </h2>
+        ) : (
           <MoviesSceneList films={filteredData} />
-          // <AiTwotoneSound/>
         )}
       </section>
     </div>
   );
 }
-
 export default App;

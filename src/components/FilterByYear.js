@@ -3,8 +3,8 @@ import "../styles/layout/_filter_by_year.scss";
 import "../styles/core/_reset.scss"
 const FilterByYear = (props) => {
 
-  const handleChange = (ev) => {
-    props.handleFilterByYear(ev.target.value);
+  const handleSelect = (ev) => {
+    props.setSelect(ev.target.value);
   };
   
   const renderYears = () => {
@@ -21,9 +21,12 @@ const FilterByYear = (props) => {
 return (
     <section>
       <label htmlFor="year"></label>
-      <select className="form_year__select"
+      <select 
+      className="form_year__select"
       name="year" 
-      id="year">
+      id="year"
+      value= {props.select}
+      onChange={handleSelect}>
         <option value="All">All</option>
           {renderYears()}
       </select>
