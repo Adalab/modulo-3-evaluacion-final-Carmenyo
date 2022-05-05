@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import MoviesSceneList from "./MoviesSceneList";
 import Filters from "./Filters";
 import Header from "./Header";
+import "../styles/core/_reset.scss"
 
 function App() {
   const [dataFilms, setDataFilms] = useState([]);
@@ -23,11 +24,8 @@ function App() {
     });
   }, []);
 
-
-
-
   const filteredData = dataFilms
-  .filter((film) => {
+   .filter((film) => {
     return(
     film.movie.toLowerCase().includes(search.toLowerCase()))
   });

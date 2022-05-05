@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/layout/_filter_by_year.scss";
-
+import "../styles/core/_reset.scss"
 const FilterByYear = (props) => {
 //  hacer el map para mostrar los años
 

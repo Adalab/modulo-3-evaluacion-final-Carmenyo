@@ -1,16 +1,18 @@
-.card {
+.card{
     text-align: center;
+    align-items: center;
     border: solid 5px black;
-    margin: 20px;
+    margin: 5px;
     border-radius: 15px;
+    margin: 20px;
     
-
     &__image{
-        width: 200px;
-        margin-top: 40px;
+        width: 180px;
+        margin-top: 10px;
         border-radius: 15px;
+        margin-top:5px ;
+        padding: 20px;
     }
-
     &__title{
         font-family:fantasy;
         font-size: 20px;

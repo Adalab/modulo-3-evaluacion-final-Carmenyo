@@ -1,5 +1,5 @@
 import "../styles/layout/_filter_by_name.scss"
-
+import "../styles/core/_reset.scss"
 const FilterByName = (props) => {
     const handleSearch = (ev) => {
     props.setSearch(ev.target.value);
