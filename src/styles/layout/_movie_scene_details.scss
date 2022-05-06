@@ -1,0 +1,39 @@
+.singleCard {
+    display: flex;
+    border: solid 5px black;
+    max-width: 600px;
+    align-items: center;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+&__image{
+    width: 200px;
+    padding: 10px;
+}
+
+&__icon{
+    font-size: 40px;
+}
+
+&__data{
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+&__title{
+    font-size: 40px;
+    font-family: fantasy;
+}
+
+&__description{
+    font-style: oblique;
+}
+
+&__director{ font-size: 12px;
+
+}
+
+
+
+}

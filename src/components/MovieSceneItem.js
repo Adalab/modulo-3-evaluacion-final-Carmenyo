@@ -12,7 +12,7 @@ function MoviesSceneItems(props) {
         src={props.film.poster}
       />
       <h4 className='card__title'>{props.film.movie}</h4>
-      <p className='card__description'>{props.film.fullline}</p>
+      <p className='card__description'>"{props.film.fullline}"</p>
       <p className='card__year'>{props.film.year}</p>
     </Link>
   );

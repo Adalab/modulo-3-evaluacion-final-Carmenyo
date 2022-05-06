@@ -1,6 +1,7 @@
 import React from "react";
-// import {AiTwotoneSound} from "react-icons/ai"
+import { AiFillGithub  } from "react-icons/ai";
 import "../styles/core/_reset.scss";
+import "../styles/layout/_movie_scene_details.scss";
 import storage from "../services/localStorage";
 
 function MovieSceneDetail(props) {
@@ -9,13 +10,21 @@ function MovieSceneDetail(props) {
   storage.set(props.id, film);
 
   return (
-    <>
-      <img className='card__image--detail' alt={film.movie} src={film.poster} />
-      <h4 className='card__title--detail'>{film.movie}</h4>
-      <p className='card__description--detail'>{film.fullline}</p>
-      <p className='card__year--detail'>{film.year}</p>
-      <p className='card__director--detail'>{film.director}</p>
-    </>
+    <section className='singleCard'>
+     
+      <img className='singleCard__image' alt={film.movie} src={film.poster} />
+
+      <div className='singleCard__data'>
+ 
+        <h4 className='singleCard__title'>{film.movie}</h4>
+        <p className='singleCard__description'>"{film.fullline}"</p>
+
+        <p className='singleCard__director'>Director: {film.director}</p>
+        <audio controls>
+          <source src={film.audio} type='audio/mp3'/>
+        </audio>
+      </div>
+    </section>
   );
 }
 
