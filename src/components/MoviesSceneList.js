@@ -23,7 +23,3 @@ function MoviesSceneList(props) {
 }
 
 export default MoviesSceneList;
-
-MoviesSceneList.propsTypes={
-films:PropTypes.array
-};
