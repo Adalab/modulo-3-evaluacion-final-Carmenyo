@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, useLocation, matchPath } from "react-router-dom";
+import { Routes, Route, useLocation, matchPath, } from "react-router-dom";
 import "../styles/App.scss";
 import getApiData from "../services/api";
 import { useEffect, useState } from "react";
@@ -49,6 +49,8 @@ function App() {
       if (select === "All") {
         return true;
       }
+    
+      return ((film.year) === parseInt(select));
     });
 
   return (
@@ -63,6 +65,7 @@ function App() {
               <Filters
                 search={search}
                 setSearch={setSearch}
+                select={select}
                 setSelect={setSelect}
                 years={getYears()}
               />

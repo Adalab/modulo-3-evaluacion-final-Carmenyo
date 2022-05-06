@@ -2,6 +2,7 @@ import React from "react";
 import MoviesSceneItems from "./MovieSceneItem";
 import "../styles/layout/_movie_Scene_List.scss";
 import "../styles/core/_reset.scss";
+import PropTypes from "prop-types";
 
 function MoviesSceneList(props) {
   const filmElements = props.films.map((film, id) => {
@@ -22,3 +23,7 @@ function MoviesSceneList(props) {
 }
 
 export default MoviesSceneList;
+
+MoviesSceneList.propsTypes={
+films:PropTypes.array
+};

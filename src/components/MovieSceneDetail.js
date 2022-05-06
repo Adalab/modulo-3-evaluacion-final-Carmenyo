@@ -1,5 +1,4 @@
 import React from "react";
-import { AiFillGithub  } from "react-icons/ai";
 import "../styles/core/_reset.scss";
 import "../styles/layout/_movie_scene_details.scss";
 import storage from "../services/localStorage";
@@ -21,7 +20,7 @@ function MovieSceneDetail(props) {
 
         <p className='singleCard__director'>Director: {film.director}</p>
         <audio controls>
-          <source src={film.audio} type='audio/mp3'/>
+          <source src= {film.audio} type='audio/mp3'/>
         </audio>
       </div>
     </section>

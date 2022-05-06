@@ -1,11 +1,17 @@
 .header{
+display: flex;
+flex-direction: column;
+border-bottom: 2px black solid;
+
     &__logo {
         width: 300px;
         margin-bottom: 10px;
+
     }
     &__icon{
-    font-size: 30px;
-    margin-left: 1000px;
+    font-size: 40px;
+    align-items: flex-start;
+    margin-left: 20px;
 
     }
 }

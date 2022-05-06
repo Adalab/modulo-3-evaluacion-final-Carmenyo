@@ -10,7 +10,7 @@ function Filters(props) {
   return (
     <form className='form' onSubmit={handleSubmit}>
       <FilterByName search={props.search} setSearch={props.setSearch} />
-      <FilterByYear years={props.years} setSelect={props.setSelect} />
+      <FilterByYear years={props.years} setSelect={props.setSelect} select={props.select}   />
     </form>
   );
 }
