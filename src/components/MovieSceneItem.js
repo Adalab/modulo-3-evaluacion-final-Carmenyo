@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function MoviesSceneItems(props) {
   return (
-    <Link to={`/${props.film.id}`}>
+    <Link className="card__link" to={`/${props.film.id}`}>
       <img
         className='card__image'
         alt={props.film.movie}

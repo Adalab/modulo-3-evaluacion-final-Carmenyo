@@ -6,9 +6,10 @@ import { AiFillGithub  } from "react-icons/ai";
 const Header = () => {
   return <header className="header"><img src= {logo} alt="" className="header__logo"></img>
   
-  <AiFillGithub className="header__icon" a href="http://beta.adalab.es/modulo-3-evaluacion-final-Carmenyo/"/>
-
-
+  
+  
+  <a href="http://beta.adalab.es/modulo-3-evaluacion-final-Carmenyo/"> <AiFillGithub className="header__icon"/>
+  </a>
   <hr className="hr" />
    </header>
 };
